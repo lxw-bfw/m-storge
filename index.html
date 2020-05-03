@@ -1,0 +1,39 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Author: lxw
+ * @Date: 2020-05-03 16:04:10
+ * @LastEditors: lxw
+ * @LastEditTime: 2020-05-03 17:08:55
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>本地缓存插件</title>
+</head>
+<body>
+
+    
+    <script src="./mStorage.js"></script>
+    <script>
+     let appStorageData = {
+            version:'1.0',
+            userinfo:'暂无',
+            theme:'blue',
+            userPlaninfo:{
+                key1:'fsdfjslfs',
+                key2:'fsfdsf'
+            }
+        }
+
+        let storage = new Storage(appStorageData,{})
+   
+
+        appStorageData.userinfo = '用户来自附件是放假啦放假啦方式发来的数据分类算法就就飞洒发了'
+    </script>
+    
+</body>
+</html>
