@@ -1,0 +1,60 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Author: lxw
+ * @Date: 2020-05-03 16:04:10
+ * @LastEditors: lxw
+ * @LastEditTime: 2020-05-03 22:17:10
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>本地缓存插件</title>
+</head>
+<body>
+
+    
+    <script src="./lib/mStorage.js"></script>
+    <script>
+      
+     let appStorageData = {
+            version:'1.0',
+            userinfo:'暂无',
+            theme:'blue',
+            userPlaninfo:{
+                key1:'fsdfjslfs',
+                key2:'fsfdsf'
+            }
+        }
+         // 初始化传入的对象参数的每一个属性只是会被注册监听，不会被持久化，比如
+        // version字段，如果初始化传入的值就是当前应用需要持久化的，需要显示调用
+        // 即 appStorageData.version = xxx 才会触发持久化操作
+        let storage = new Storage(appStorageData,{})
+        
+        // 为字段配置缓存说明,默认为无，可以根据需要配置
+         // 添加缓存说明，比如userPlaninfo缓存的是用户个人计划
+        // 第一个参数kye要与对应缓存字段key一致
+        storage.addReason('userinfo','缓存用户个人信息')
+        storage.addReason('userPlaninfo','缓存用户个人计划')
+        // 设置
+        appStorageData.userinfo = 'fjfjlfjlfjslfjlfjdslfjllfjdslfjsdj'
+        // 可以直接传递对象类型进行缓存
+        appStorageData.userinfo = {
+            name:'lxw',
+            age:23,
+            hobbies:['篮球','编程','小说','游戏',],
+            introduce:'乘风破浪会有时，直挂云帆济沧海'
+        }
+        
+        //  可以在另一个页面获取或者是把以上的'set'操作注释掉
+        console.log(appStorageData.userinfo);
+        console.log(appStorageData.userinfo.introduce)
+       
+        
+    </script>
+    
+</body>
+</html>
