@@ -4,7 +4,7 @@
  * @Author: lxw
  * @Date: 2020-05-03 20:27:13
  * @LastEditors: lxw
- * @LastEditTime: 2020-05-03 22:29:44
+ * @LastEditTime: 2020-05-04 21:28:20
  */
 import Storage from '../lib/mStorage';
 
@@ -20,8 +20,8 @@ const appStorageData = {
     }
 }
 
-// 对localStorage进行配置，比如配置缓存有效时间
-let localStorageConfiguration = {}
+// localStorage的配置参数,long配置缓存字段更新后缓存的有效时间，比如今天更新内容，单位毫秒记住单位是毫秒毫秒，比如设置120秒就是120000 同时更新资源，120秒后缓存失效，提供回调函数监听，做出对应的处理 
+let localStorageConfiguration = {long:120000}
 
  // 传入封装持久化字段的对象初始
  // 会对传入的对象参数的每一个属性注册监听get与set，
@@ -45,11 +45,7 @@ appStorageData.userinfo = {
     introduce:'乘风破浪会有时，直挂云帆济沧海'
 }
 
-// 获取
-// 获取操作是直接通过我们封装缓存字段的对象来实现的
-// 设置后可以在其他页面，导入封装对象，使用对象语法来直接获取
-console.log(appStorageData.userinfo);
-console.log(appStorageData.userinfo.introduce)
+
 
 
 export { cachData, storage}
